@@ -1,14 +1,14 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js install
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add react-router-dom
 
 PATH: 
-  /home/franck/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 Yarn version: 
   1.22.15
 
 Node version: 
-  14.17.6
+  16.13.1
 
 Platform: 
   linux x64
@@ -18,13 +18,13 @@ Trace:
       at ResponseError.ExtendableBuiltin (/usr/share/yarn/lib/cli.js:696:66)
       at new ResponseError (/usr/share/yarn/lib/cli.js:802:124)
       at Request.<anonymous> (/usr/share/yarn/lib/cli.js:67101:16)
-      at Request.emit (events.js:400:28)
+      at Request.emit (node:events:390:28)
       at Request.module.exports.Request.onRequestResponse (/usr/share/yarn/lib/cli.js:141762:10)
-      at ClientRequest.emit (events.js:400:28)
-      at HTTPParser.parserOnIncomingClient (_http_client.js:647:27)
-      at HTTPParser.parserOnHeadersComplete (_http_common.js:126:17)
-      at TLSSocket.socketOnData (_http_client.js:515:22)
-      at TLSSocket.emit (events.js:400:28)
+      at ClientRequest.emit (node:events:390:28)
+      at HTTPParser.parserOnIncomingClient [as onIncoming] (node:_http_client:623:27)
+      at HTTPParser.parserOnHeadersComplete (node:_http_common:128:17)
+      at TLSSocket.socketOnData (node:_http_client:487:22)
+      at TLSSocket.emit (node:events:390:28)
 
 npm manifest: 
   {

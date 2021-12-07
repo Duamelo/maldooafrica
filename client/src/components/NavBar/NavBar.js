@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import logo from '../../images/flavicon.png'
 import scooter from '../../images/scooter.png'
 import './navBar.css';

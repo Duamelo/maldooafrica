@@ -37,17 +37,6 @@ header{
     font-weight: 800;
 }
 
-.btn{
-    background-color: #ffc222;
-    color: black;
-    border-radius: 8px;
-    padding: 1rem 1.5rem;
-}
-
-.btn:hover{
-    color: white;
-}
-
 .header-price{
     font-weight: 800;
     color: #00a149;
@@ -56,7 +45,7 @@ header{
 
 .header-content-price{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     gap: 2rem;
     align-content: center;
 }
