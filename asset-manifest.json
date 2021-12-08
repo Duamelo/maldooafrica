@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/maldooafrica/static/css/main.23434612.chunk.css",
-    "main.js": "/maldooafrica/static/js/main.b2053b1f.chunk.js",
-    "main.js.map": "/maldooafrica/static/js/main.b2053b1f.chunk.js.map",
+    "main.css": "/maldooafrica/static/css/main.8803501d.chunk.css",
+    "main.js": "/maldooafrica/static/js/main.64f74a2d.chunk.js",
+    "main.js.map": "/maldooafrica/static/js/main.64f74a2d.chunk.js.map",
     "runtime-main.js": "/maldooafrica/static/js/runtime-main.9b2315fb.js",
     "runtime-main.js.map": "/maldooafrica/static/js/runtime-main.9b2315fb.js.map",
     "static/css/2.0a9ec390.chunk.css": "/maldooafrica/static/css/2.0a9ec390.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.e5bb002b.chunk.js.map": "/maldooafrica/static/js/2.e5bb002b.chunk.js.map",
     "index.html": "/maldooafrica/index.html",
     "static/css/2.0a9ec390.chunk.css.map": "/maldooafrica/static/css/2.0a9ec390.chunk.css.map",
-    "static/css/main.23434612.chunk.css.map": "/maldooafrica/static/css/main.23434612.chunk.css.map",
+    "static/css/main.8803501d.chunk.css.map": "/maldooafrica/static/css/main.8803501d.chunk.css.map",
     "static/js/2.e5bb002b.chunk.js.LICENSE.txt": "/maldooafrica/static/js/2.e5bb002b.chunk.js.LICENSE.txt",
     "static/media/Group 74.08a2c589.png": "/maldooafrica/static/media/Group 74.08a2c589.png",
     "static/media/Group 75.a9586726.png": "/maldooafrica/static/media/Group 75.a9586726.png",
@@ -21,7 +21,7 @@
     "static/js/runtime-main.9b2315fb.js",
     "static/css/2.0a9ec390.chunk.css",
     "static/js/2.e5bb002b.chunk.js",
-    "static/css/main.23434612.chunk.css",
-    "static/js/main.b2053b1f.chunk.js"
+    "static/css/main.8803501d.chunk.css",
+    "static/js/main.64f74a2d.chunk.js"
   ]
 }
