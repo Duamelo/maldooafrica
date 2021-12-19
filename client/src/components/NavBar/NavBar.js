@@ -4,6 +4,7 @@ import scooter from '../../images/scooter.png'
 import './navBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faSearch, faShoppingBasket, faUser } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
 
@@ -18,19 +19,19 @@ function NavBar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mb-2 mb-lg-0">
                     <li className="nav-item">
-                    <a className="nav-link active navbar-link" aria-current="page"  href="#">Home</a>
+                    <Link className="nav-link active navbar-link" aria-current="page"  to="/">Home</Link>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link  navbar-link" aria-current="page"  href="#">Menu</a>
+                    <Link className="nav-link  navbar-link" aria-current="page"  to="/menu">Menu</Link>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link  navbar-link" aria-current="page"  href="#">About</a>
+                    <Link className="nav-link  navbar-link" aria-current="page"  to="/about">About</Link>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link  navbar-link" aria-current="page"  href="#">Shop</a>
+                    <Link className="nav-link  navbar-link" aria-current="page"  to="/shop">Shop</Link>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link  navbar-link" aria-current="page"  href="#">Contact</a>
+                    <Link className="nav-link  navbar-link" aria-current="page"  to="/contact">Contact</Link>
                     </li>
                 </ul>
 
@@ -43,17 +44,17 @@ function NavBar() {
                 </div>
 
                 <div className="d-flex nav-">
-                    <a href="" className="nav-lin-icon-a">
+                    <a href="/" className="nav-lin-icon-a">
                         <FontAwesomeIcon icon={faSearch}/>
                     </a>
-                    <a href="" className="nav-lin-icon-a">
+                    <a href="/" className="nav-lin-icon-a">
                         <FontAwesomeIcon icon={faUser}/>
                     </a> 
-                    <a href="" className="nav-lin-icon-a">
+                    <a href="/" className="nav-lin-icon-a">
                         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">4</span>
                         <FontAwesomeIcon icon={faHeart}/>
                     </a> 
-                    <a href="" className="nav-lin-icon-a">
+                    <a href="/" className="nav-lin-icon-a">
                         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">23</span>
                         <FontAwesomeIcon icon={faShoppingBasket}/>
                     </a> 

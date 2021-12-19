@@ -54,12 +54,6 @@ img{
     font-size: 10px;
 }
 
-@media screen(min-width : 992px) {
-    .nav-link-icon{
-        justify-content: start ;
-    }
-}
-
 .nav-contact-me{
     display: flex;
     align-items: center;
