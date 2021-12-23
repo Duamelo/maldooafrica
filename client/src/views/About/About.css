@@ -1,0 +1,96 @@
+.header-menu{
+    margin: 5rem 0rem 1rem 0rem;
+    padding: 0rem 0rem 5rem 0rem;
+    background-color: #f8f5f0;
+    width: 100%;
+    text-align: center;
+
+
+}
+
+.header-menu-title {
+    font-size: 52px;
+    margin-bottom: 0px;
+    text-transform: capitalize;
+    text-align: center;
+    justify-content: start;
+    padding: 5.5rem 0rem 0rem 0rem;
+    font-weight: bolder;
+}
+
+
+.text-title {
+    font-size: 40px;
+    color: #ffc222;
+    font-family: norican, sans-serif;
+    text-transform: capitalize;
+}
+
+.text-header {
+    font-size: 40px;
+}
+
+.text-title-chicken {
+    font-size: 30px;
+    color: #ffc222;
+    font-family: norican, sans-serif;
+    text-transform: capitalize;
+}
+
+.text-header-chicken{
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 42px;
+}
+
+.style-images {
+    border-radius: 5px 5px 5px 5px;
+    height: auto;
+}
+
+.rounded-image {
+    border-radius: 100px 100px 100px 100px;
+    width: 100px;
+}
+
+.text-carousel{
+    position: relative;
+    margin-top: 50px;
+}
+
+.ratings {
+    margin-right: 10px;
+    margin-top: 20px;
+    
+}
+
+.ratings i {
+    color: #cecece;
+    font-size: 25px
+}
+
+.rating-color {
+    color: #fbc634 !important
+}
+
+.card-cooker {
+    border-radius: 5px 5px 0px 0px;
+}
+.card-cooker:hover{
+    color: gray;
+    cursor: pointer;
+}
+
+.button-card-cooker {
+    position: relative;
+    bottom: 100px;
+}
+@media  only screen and (max-width: 768px){
+    .text-title{
+        text-align: center;
+    }
+    .text-header{
+        font-size: 28px;
+        text-align: center;
+    }
+}

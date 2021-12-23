@@ -1,0 +1,128 @@
+.card-poco{
+    width: 95%;
+    padding: 10px 10px;
+    box-shadow: 0px 0px 5px #adadad;
+    border-radius: 14px;
+
+    display: grid;
+    grid-template-rows: 6fr 3fr;
+}
+
+@media all and (min-width : 400px){
+    .card-poco{
+        grid-template-rows: 6fr 2fr;
+    }
+}
+
+@media all and (min-width : 550px){
+    .card-poco{
+        grid-template-rows: 5fr 1fr;
+    }
+}
+
+@media all and (min-width : 768px){
+    .card-poco{
+        
+    }
+}
+
+.card-poco-span-sale{
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 15px;
+}
+
+.card-poco-div-img-inside{
+    position: absolute;
+    width: 100%;
+    padding: 10px 10px;
+}
+
+.card-poco-div-img{
+    position: relative;
+    display: inline-block;
+    z-index: 50;
+}
+
+.card-img{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-poco-icon-love{
+    float: right;
+    color: #adadad;
+}
+
+.card-poco-icon-love:hover{
+    color: #333;
+}
+
+.card-poco-div-describe{
+    padding: 0 5px;
+}
+
+.card-poco-div-describe h3{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.card-poco-div-describe p{
+    font-size: 14px;
+}
+
+.more-describe{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-poco .price{
+    font-size: 17px;
+    color: #ffc222;
+    font-weight: bold;
+}
+
+.card-poco .basket-content{
+    font-size: 14px;
+    color: #333;
+    padding: 8px;
+    background-color: #ffc222;
+    border-radius: 40%;
+}
+
+.card-poco .basket-content:hover{
+    background-color: #fcb708;
+    color: white;
+}
+
+.card-img::after{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    height: 50%;
+    width: 100%;
+    background-color: #fcb7084d;
+    border-radius: 14px;
+    z-index: -10;
+
+    transition: all 0.25s ease;
+
+}
+
+.card-poco-div-img:hover .card-img::after{
+    background-color: #ffc222;
+    height: 100%;
+    transition: all 0.25s ease;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
