@@ -18,7 +18,31 @@
     font-weight: bolder;
 }
 
+/******************************************************************/
+.breadcrumb-arrow {
+    position: relative;
+    --bs-breadcrumb-divider: '>';
+    left: 100px;
+}
 
+.base-page {
+    color: gray;
+    text-decoration: none;
+}
+.base-page:hover {
+    color: #FFC222;
+}
+
+.current-page {
+    color: black;
+}
+
+.breadcrumb-item {
+    margin: 0;
+    padding: 0;
+}
+
+/*********************************************/
 .text-title {
     font-size: 40px;
     color: #ffc222;

@@ -1,16 +1,13 @@
 import React from 'react';
-import { Breadcrumb } from 'antd';
-import { Rate } from 'antd';
 import { Link } from 'react-router-dom';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import './Menu.css'
 
+import CardMenu from "../../components/card-menu/card-menu";
 //images
 
-import pizza from "../../images/pizza.png";
-import basket from "../../images/shopping.png";
+
 import scooter from '../../images/icons8-scooter-68.png';
+
 
 
 function Menu() {
@@ -24,10 +21,12 @@ function Menu() {
                         </div>
                         <div className="col">
                             <h1 className="header-menu-title">Menu Maldoo</h1>
-                            <Breadcrumb separator=">">
-                                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                                <span className="ant-breadcrumb-link"> Menu Maldoo</span>
-                            </Breadcrumb>
+                            <nav className="breadcrumb-arrow" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item base-page"><Link to="#" className="base-page">Home</Link></li>
+                                    <li class="breadcrumb-item  current-page" aria-current="page">menu maldoo</li>
+                                </ol>
+                            </nav>
                         </div>
                         <div className="col">
 
@@ -40,159 +39,16 @@ function Menu() {
         <section className="menu-tabs-content  product-list">
             <div className="container-fluid">
                 <ul className="row products">
-                    <li className="col-lg-2 product-item">
-                        <div className="product-list-inner">
-                        <a href="/"> <img src={pizza} alt=""></img> </a>
-                        <div className="product-content">
-                            <div className="start-rating">
-                            <span>
-                              <Rate disabled defaultValue={2} />
-                            </span>
-                            </div>
-                            <Link className="product-title" to="#"><span>Delicious pizza</span></Link>
-                            <span className="price">
-                                1000 FCFA
-                            </span>
-                            <div className="short-description">
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                                 sed do eiusmod 
-                                 
-                            </div>
-                            <Link className="button" to="#"> <img src={basket} alt=""></img> </Link>
-                        </div>
-                        </div>
-                        
-                    </li>
-                    {/*   another item */}
-
-                    <li className="col-lg-2 product-item">
-                        <div className="product-list-inner">
-                        <a href="/"> <img src={pizza} alt=""></img> </a>
-                        <div className="product-content">
-                            <div className="start-rating">
-                            <span>
-                              <Rate disabled defaultValue={2} />
-                            </span>
-                            </div>
-                            <Link className="product-title" to="#"><span>Delicious pizza</span></Link>
-                            <span className="price">
-                                1000 FCFA
-                            </span>
-                            <div className="short-description">
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                                 sed do eiusmod 
-                                 
-                            </div>
-                            <Link className="button" to="#"> <img src={basket} alt=""></img> </Link>
-                        </div>
-                        </div>
-                        
-                    </li>
-                    {/*   another item */}
-
-                    <li className="col-lg-2 product-item">
-                        <div className="product-list-inner">
-                        <a href="/"> <img src={pizza} alt=""></img> </a>
-                        <div className="product-content">
-                            <div className="start-rating">
-                            <span>
-                              <Rate disabled defaultValue={2} />
-                            </span>
-                            </div>
-                            <Link className="product-title" to="#"><span>Delicious pizza</span></Link>
-                            <span className="price">
-                                1000 FCFA
-                            </span>
-                            <div className="short-description">
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                                 sed do eiusmod 
-                                 
-                            </div>
-                            <Link className="button" to="#"> <img src={basket} alt=""></img> </Link>
-                        </div>
-                        </div>
-                        
-                    </li>
-                    {/*   another item */}
-
-                    <li className="col-lg-2 product-item">
-                        <div className="product-list-inner">
-                        <a href="/"> <img src={pizza} alt=""></img> </a>
-                        <div className="product-content">
-                            <div className="start-rating">
-                            <span>
-                              <Rate disabled defaultValue={2} />
-                            </span>
-                            </div>
-                            <Link className="product-title" to="#"><span>Delicious pizza</span></Link>
-                            <span className="price">
-                                1000 FCFA
-                            </span>
-                            <div className="short-description">
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                                 sed do eiusmod 
-                                 
-                            </div>
-                            <Link className="button" to="#"> <img src={basket} alt=""></img> </Link>
-                        </div>
-                        </div>
-                        
-                    </li>
-                    {/*   another item */}
-                    <li className="col-lg-2 product-item">
-                        <div className="product-list-inner">
-                        <a href="/"> <img src={pizza} alt=""></img> </a>
-                        <div className="product-content">
-                            <div className="start-rating">
-                            <span>
-                              <Rate disabled defaultValue={2} />
-                            </span>
-                            </div>
-                            <Link className="product-title" to="#"><span>Delicious pizza</span></Link>
-                            <span className="price">
-                                1000 FCFA
-                            </span>
-                            <div className="short-description">
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                                 sed do eiusmod 
-                                 
-                            </div>
-                            <Link className="button" to="#"> <img src={basket} alt=""></img> </Link>
-                        </div>
-                        </div>
-                        
-                    </li>
-                    {/*   another item */}
-                    <li className="col-lg-2 product-item">
-                        <div className="product-list-inner">
-                        <a href="/"> <img src={pizza} alt=""></img> </a>
-                        <div className="product-content">
-                            <div className="start-rating">
-                            <span>
-                              <Rate disabled defaultValue={2} />
-                            </span>
-                            </div>
-                            <Link className="product-title" to="#"><span>Delicious pizza</span></Link>
-                            <span className="price">
-                                1000 FCFA
-                            </span>
-                            <div className="short-description">
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                                 sed do eiusmod 
-                                 
-                            </div>
-                            <Link className="button" to="#"> <img src={basket} alt=""></img> </Link>
-                        </div>
-                        </div>
-                        
-                    </li>
-                    {/*   another item */}
-                   
+                   <CardMenu/>
+                   <CardMenu/>
+                   <CardMenu/>
+                   <CardMenu/>
+                   <CardMenu/> 
+                   <CardMenu/>
                 </ul>
             </div>
         </section>
-
-        <section className="widjet-container">
+        <section className="container-fluid widjet-container">
             <div className="container">
                 <div className="row">
                     <div className="col-sm">

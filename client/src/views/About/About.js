@@ -1,23 +1,25 @@
 import React from 'react';
-    import { Breadcrumb } from 'antd';
-    import "./About.css";
-    import Button from '../../components/Button/Button';
+import { Link } from 'react-router-dom';
+import Button from '../../components/Button/Button';
+import "./About.css";
 
 function About() {
     return <>
     <section className="header-menu">
-            <div className="jumbotron jumbotron-fluid ">
-                <div className="container">
+            <div class="jumbotron jumbotron-fluid ">
+                <div class="container">
                     <div className="row">
                         <div className="col">
 
                         </div>
                         <div className="col">
-                            <h1 className="header-menu-title">À propos</h1>
-                            <Breadcrumb separator=">">
-                                <Breadcrumb.Item>Accueil</Breadcrumb.Item>
-                                <span className="ant-breadcrumb-link">à propos de nous</span>
-                            </Breadcrumb>
+                            <h1 className="header-menu-title">Maldoo</h1>
+                            <nav className="breadcrumb-arrow" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item base-page"><Link to="#" className="base-page">Home</Link></li>
+                                    <li class="breadcrumb-item  current-page" aria-current="page">à propos</li>
+                                </ol>
+                            </nav>
                         </div>
                         <div className="col">
 
@@ -45,10 +47,10 @@ function About() {
 					<div className="col-sm mt-3 mb-3">
                         
 						<img src="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/image1-h4.jpg"
-							alt="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/image1-h4.jpg" srcset="" className="style-image"/>
+							alt="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/image1-h4.jpg"  className="style-image"/>
                         {/*<img src="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/image1-h4.jpg" 
                         alt="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/image1-h4.jpg" 
-                        srcset="" className="style-image"/>*/}
+                         className="style-image"/>*/}
 					</div>
 				</div>
 				<div className="container-fluid bg-dark">
@@ -75,7 +77,7 @@ function About() {
 					<div className="col-sm">
 						<img src="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/about-imager-5.png"
 							alt="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/about-imager-5.png"
-							srcset=""/>
+							/>
 
 					</div>
 				</div>
@@ -83,7 +85,7 @@ function About() {
 					<div className="col-sm">
 						<img src="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/about-imager-5.png"
 							alt="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/about-imager-5.png"
-							srcset=""/>
+							/>
 					</div>
 					<div className="col-sm p-sm-5">
 						<h3 className="text-title-chicken">Our Quality</h3>
@@ -116,7 +118,7 @@ function About() {
 					<div className="col-sm">
 						<img src="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/about-imager-5.png"
 							alt="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/about-imager-5.png"
-							srcset=""/>
+							/>
 
 					</div>
 				</div>
@@ -139,7 +141,7 @@ function About() {
 							</svg>
 							<div className="carousel-caption d-none d-md-block">
 								<img src="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/09/avatar-1.jpg"
-									alt="" srcset="" className="rounded-image"/>
+									alt=""  className="rounded-image"/>
                                     <div className="ratings"> <i className="fa fa-star rating-color"></i> 
                                         <i className="fa fa-star rating-color"></i> <i className="fa fa-star rating-color"></i> 
                                         <i className="fa fa-star rating-color"></i> <i className="fa fa-star"></i> 
@@ -158,7 +160,7 @@ function About() {
 							</svg>
 							<div className="carousel-caption d-none d-md-block">
 								<img src="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/09/avatar-1.jpg"
-									alt="" srcset="" className="rounded-image"/>
+									alt=""  className="rounded-image"/>
                                 <div className="ratings"> <i className="fa fa-star rating-color"></i> 
                                     <i className="fa fa-star rating-color"></i> <i className="fa fa-star rating-color"></i> 
                                     <i className="fa fa-star rating-color"></i> <i className="fa fa-star"></i> 
@@ -177,7 +179,7 @@ function About() {
 							</svg>
 							<div className="carousel-caption d-none d-md-block">
 								<img src="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/09/avatar-1.jpg"
-									alt="" srcset="" className="rounded-image"/>
+									alt=""  className="rounded-image"/>
                                 <div className="ratings"> <i className="fa fa-star rating-color"></i> 
                                     <i className="fa fa-star rating-color"></i> <i className="fa fa-star rating-color"></i> 
                                     <i className="fa fa-star rating-color"></i> <i className="fa fa-star"></i> 
