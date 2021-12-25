@@ -1,16 +1,23 @@
 const mongoose = require('mongoose');
 
+
 const orderItemSchema = mongoose.Schema({
-    quantity: {
+    menuQuantity: {
         type:  Number,
         required: true
     },
-    category: {
+    dishQuantity: {
+        type:  Number,
+        required: true
+    },
+    menu: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category'
+        ref: 'Menu'
+    },
+    dish: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Dish'
     }
-
-
 });
 
 

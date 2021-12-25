@@ -24,23 +24,28 @@ const orderSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    status: {
+
+    statut: {
         type: String,
         required: true,
-        default: 'Pending'
+        default: 'unpaid'
     },
+
     state: {
         type: String,
         required: true,
         default: 'Pending'
     },
+
     totalPrice: {
         type:Number,
     },
+
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
+
     dateOrdered: {
         type: Date,
         default: Date.now

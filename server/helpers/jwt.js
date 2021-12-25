@@ -1,7 +1,5 @@
 const expressJwt = require('express-jwt');
 
-
-
 function authJwt()
 {
     const secret = process.env.secret;
@@ -17,14 +15,15 @@ function authJwt()
             {url:/\/api\/v1\/menus(.*)/ , methods: ['GET', 'OPTIONS']},
             {url:/\/public\/uploads(.*)/ , methods: ['GET', 'OPTIONS']},
             {url:/\/api\/v1\/categories(.*)/ , methods: ['GET', 'OPTIONS']},
+            {url:/\/api\/v1\/dishs(.*)/ , methods: ['GET', 'OPTIONS']},
             {url:/\/api\/v1\/orders(.*)/ , methods: ['GET', 'OPTIONS']},
             {url:/\/api\/v1\/users(.*)/ , methods: ['GET', 'OPTIONS']},
             `${api}/users/login`,
             `${api}/users/register`,
-
         ]
     })
 }
+
 
 async function isRevoked(req, payload, done)
 {

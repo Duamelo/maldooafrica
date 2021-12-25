@@ -1,9 +1,9 @@
 const express = require('express');
-const { Category } = require('../models/category');
 const router = express.Router();
 const { Menu } = require('../models/menu');
 const mongoose = require('mongoose');
 const multer = require('multer');
+const { Dish } = require('../models/dish');
 
 const FILE_TYPE_MAP = {
     'image/png': 'png',
@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
         {
             uploadError = null;
         }
-        cb(uploadError, 'public/uploads');
+        cb(uploadError, 'public/uploads/menus');
     },
     filename: function(req, file, cb) {
 
@@ -37,39 +37,38 @@ const uploadOptions = multer({ storage: storage});
 
 
 router.get(`/`, async (req, res)=> {
-    // localhost:3000/api/v1/menus?categories=12335,458932    (query parameter)
-    console.log('ici');
-    let filter = {};
 
-    if (req.query.categories)
-    {
-        filter = { category: req.query.categories.split(',') };
-    }
-
-    const menuList = await Menu.find(filter).select().populate('category');
+    const menuList = await Menu.find();
 
     if (!menuList)
     {
-        res.status(500).json({success: false});
+        return res.status(500).json({success: false});
     }
-    res.send(menuList);
+
+    return res.status(200).send(menuList);
 })
 
 
 router.get(`/:id`, async (req, res)=> {
-    const menu = await Menu.findById(req.params.id).populate('category');
+    const menu = await Menu.findById(req.params.id).populate('entry, resistance, output');
 
     if (!menu)
-        res.status(500).json({success: false});
+        return res.status(500).json({success: false});
 
-    res.send(menu);
+    return res.status(200).send(menu);
 })
 
 
 router.post(`/`, uploadOptions.single('image'), async (req, res)=> {
 
-    const category = await Category.findById(req.body.category);
-    if(!category) return res.status(400).send('Invalid Category');
+    const entry = await Dish.findById(req.body.entry);
+    const resistance = await Dish.findById(req.body.resistance);
+    const output = await Dish.findById(req.body.output);
+    
+    if(!entry) return res.status(400).send('Invalid entry dish');
+    if(!resistance) return res.status(400).send('Invalid resistance dish');
+    if(!output) return res.status(400).send('Invalid output dish');
+    
     
     const file = req.file;
     if(!file)
@@ -77,7 +76,7 @@ router.post(`/`, uploadOptions.single('image'), async (req, res)=> {
     
 
     const fileName = req.file.filename;
-    const basePath = `${req.protocol}://${req.get('host')}/public/uploads/`;
+    const basePath = `${req.protocol}://${req.get('host')}/public/uploads/menus`;
 
     let menu = new Menu({
         name: req.body.name,
@@ -85,18 +84,18 @@ router.post(`/`, uploadOptions.single('image'), async (req, res)=> {
         richDescription: req.body.richDescription,
         image: `${basePath}${fileName}`,
         price: req.body.price,
-        category: req.body.category,
-        rating: req.body.rating,
+        entry: req.body.entry,
+        resistance: req.body.resistance,
+        output: req.body.output
     })
 
-    menu = await Menu.save();
+    menu = await menu.save();
     
     if (!menu)
         return res.status(500).send('The menu cannot be created');
 
-    res.send(menu);
+    return res.status(201).send(menu);
 })
-
 
 
 
@@ -107,9 +106,14 @@ router.put('/:id', uploadOptions.single('image'), async (req, res)=> {
         res.status(400).send('Invalid menu Id');
     }
 
-    const category = await Category.findById(req.body.category);
-    if(!category) return res.status(400).send('Invalid Category');
- 
+    const entry = await Dish.findById(req.body.entry);
+    const resistance = await Dish.findById(req.body.resistance);
+    const output = await Dish.findById(req.body.output);
+    
+    if(!entry) return res.status(400).send('Invalid entry dish');
+    if(!resistance) return res.status(400).send('Invalid resistance dish');
+    if(!output) return res.status(400).send('Invalid output dish');
+    
     const menu = await Menu.findById(req.body.id);
     
     if(!menu)
@@ -120,9 +124,8 @@ router.put('/:id', uploadOptions.single('image'), async (req, res)=> {
 
     if(file)
     {
-
         const fileName = req.file.filename;
-        const basePath = `${req.protocol}://${req.get('host')}/public/uploads/`;
+        const basePath = `${req.protocol}://${req.get('host')}/public/uploads/menus`;
         imagepath = `${basePath}${fileName}`;
     }
     else{
@@ -137,18 +140,21 @@ router.put('/:id', uploadOptions.single('image'), async (req, res)=> {
             richDescription: req.body.richDescription,
             image: imagepath,
             price: req.body.price,
-            category: req.body.category,
+            entry: req.body.entry,
+            resistance: req.body.resistance,
+            output: req.body.output,
             rating: req.body.rating,
         },
         {new: true}
     )
 
     if (!updatedmenu)
-    return res.status(404).send('The menu with that id cannot be updated!');
+        return res.status(404).send('The menu with that id cannot be updated!');
 
 
-    res.send(menu);;
+    return res.status(200).send(menu);;
 })
+
 
 
 router.delete('/:menuId', (req, res)=>{
@@ -162,6 +168,7 @@ router.delete('/:menuId', (req, res)=>{
     })
 
 })
+
 
 
 router.get(`/get/count`, async (req, res)=>{
@@ -189,7 +196,7 @@ router.put(
 
         const files = req.files;
         let imagesPaths = [];
-        const basePath = `${req.protocol}://${req.get('host')}/public/uploads/`;
+        const basePath = `${req.protocol}://${req.get('host')}/public/uploads/menus`;
 
         if(files)
         {
@@ -212,7 +219,7 @@ router.put(
     if(!menu)
         return res.status(500).send('the menu cannot be updated!');
 
-    res.send(menu);
+    return res.status(200).send(menu);
 
 });
 

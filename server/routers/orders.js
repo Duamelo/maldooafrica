@@ -3,18 +3,20 @@ const { OrderItem } = require('../models/order-item');
 const { Order } = require('../models/orders');
 const router = express.Router();
 const mongoose = require('mongoose');
+const { Menu } = require('../models/menu');
+const { Dish } = require('../models/dish');
 
 
 
 router.get(`/`, async (req, res)=>{
     const orderList = await Order.find().select()
     .populate('user', 'name').sort({'dateOrdered': -1})
-    .populate({path: 'orderItems', populate: 'category'});
+    .populate({path: 'orderItems', populate: 'menu, dish'});
 
     if(!orderList)
         res.status(500).json({success: false });
 
-    res.send(orderList);
+    res.status(200).send(orderList);
 })
 
 
@@ -22,33 +24,48 @@ router.get(`/:id`, async (req, res)=>{
     const order = await Order.findById(req.params.id).select()
     .populate('user', 'name')
     .populate({
-        path: 'orderItems', populate: 'category'});
+        path: 'orderItems', populate: 'menu, dish'});
 
     if(!order)
         res.status(500).json({success: false });
 
-    res.send(order);
+    res.status(200).send(order);
 })
 
 
 router.post('/', async (req, res) => {
 
     const orderItemsIds = Promise.all(req.body.orderItems.map( async orderItem => {
+        
+        const checkMenu = await Menu.findById(orderItem.menu);
+        const checkDish = await Dish.findById(orderItem.dish);
+
+        if(!checkMenu) 
+            return res.status(400).send('Invalid menu');
+
+        if(!checkDish) 
+            return res.status(400).send('Invalid  dish');
+        
         let newOrderItem = new OrderItem({
-            quantity: orderItem.quantity,
-            category: orderItem.category
+            menuQuantity: orderItem.menuQuantity,
+            dishQuantity: orderItem.dishQuantity,
+            menu: orderItem.menu,
+            dish: orderItem.dish
         })
 
         newOrderItem = await newOrderItem.save();
 
         return newOrderItem._id;
+    
     }));
 
     const orderItemsIdsResolved = await orderItemsIds;
 
     const totalPrices = await Promise.all(orderItemsIdsResolved.map( async (orderItemId) =>{
-        const orderItem = await OrderItem.findById(orderItemId).populate('category', 'detailPrice');
-        const totalPrice = orderItem.category.detailPrice * orderItem.quantity;
+        const orderItem = await OrderItem.findById(orderItemId)
+                                .populate('menu', 'price')
+                                .populate('dish', 'price');
+        const totalPrice = orderItem.menu.price * orderItem.menuQuantity + orderItem.dish.price * orderItem.dishQuantity;
         return totalPrice;
     }))
 
@@ -60,40 +77,39 @@ router.post('/', async (req, res) => {
 
     let order = new Order({
         orderItems: orderItemsIdsResolved,
-        shippingAdress1: req.body.shippingAdress1,
-        shippingAdress2: req.body.shippingAdress2,
+        deliveryAdresse1: req.body.deliveryAdress1,
         city: req.body.city,
         deliveryContact: req.body.deliveryContact,
-        phone: req.body.phone,
-        status: req.body.status,
         totalPrice: totalPrice,
         user: req.body.user,
     });
 
     order = await order.save();
 
-        if (!order)
+    if (!order)
         return res.status(404).send('The order cannot be created!');
 
 
-    res.send(order);
+    return res.status(201).send(order);
 })
+
 
 
 router.put('/:id', async (req, res)=> {
     const order = await Order.findByIdAndUpdate(
         req.params.id,
         {
-            status: req.body.status 
+            state: req.body.state,
+            statut: req.body.statut 
         },
         {new: true}
     )
 
     if (!order)
-    return res.status(404).send('The order with that id cannot be updated!');
+        return res.status(404).send('The order with that id cannot be updated!');
 
 
-res.send(order);
+    return res.status(200).send(order);
 })
 
 
@@ -153,13 +169,13 @@ router.get(`/get/userorders/:userid`, async (req, res)=>{
     const userOrderList = await Order.find({user: req.params.userid}).select()
     .populate('user', 'name')
     .populate({
-        path: 'orderItems', populate: 'category'}
+        path: 'orderItems', populate: 'menu, dish'}
         ).sort({'dateOrdered': -1});
 
     if(!userOrderList)
-        res.status(500).json({success: false });
+        return res.status(500).json({success: false });
 
-    res.send(userOrderList);
+    return res.send(userOrderList);
 })
 
 

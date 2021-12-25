@@ -24,8 +24,9 @@ app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use(errorHandler);
 
 // Routers
-const menusRouter = require('./routers/menus');
 const categoriesRouter = require('./routers/categories');
+const menusRouter = require('./routers/menus');
+const dishsRouter = require('./routers/dish');
 const usersRouter = require('./routers/users');
 const ordersRouter = require('./routers/orders');
 
@@ -33,6 +34,7 @@ const api = process.env.API_URL;
 
 app.use(`${api}/orders`, ordersRouter);
 app.use(`${api}/menus`, menusRouter);
+app.use(`${api}/dishs`, dishsRouter);
 app.use(`${api}/categories`, categoriesRouter);
 app.use(`${api}/users`, usersRouter)
 

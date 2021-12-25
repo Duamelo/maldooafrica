@@ -10,38 +10,47 @@ router.get(`/`, async (req, res)=>{
     if(!userList)
         res.status(500).json({success: false });
 
-    res.send(userList);
+    return res.status(200).send(userList);
 })
 
 
 router.post(`/register`, async (req, res)=>{
+
+    const checkEmail = await User.findOne({email: req.body.email});
+
+    if (checkEmail)
+        return res.status(400).json({success: 'this email is taken'});
+
     let user = new User({
         name: req.body.name,
         email: req.body.email,
-        passwordHash: bcrypt.hashSync(req.body.passwordHash, 10),
+        passwordHash: bcrypt.hashSync(req.body.password, 10),
         phone: req.body.phone,
-        isAdmin: req.body.isAdmin,
-        apartment: req.body.apartment,
-        city: req.body.city,
         preferenceGastrique: req.body.preferenceGastrique,
+        isAdmin: req.body.isAdmin
     });
+
 
     user = await user.save();
 
     if(!user)
         return res.status(400).send('the user cannot be created');
 
-    res.send(user);
+    return res.status(200).send(user);
 })
 
-router.get('/:id', async (req, res)=>{
-    const user = await User.findById(req.params.id, '-passwordHash');
+
+
+router.get('/:userId', async (req, res)=>{
+    const user = await User.findById(req.params.userId, '-passwordHash');
 
     if (!user)
         return res.status(500).json({message: 'the user with that id does not exist'});
     
-    res.status(200).send(user);
+    return res.status(200).send(user);
 })
+
+
 
 router.delete('/:userId', (req, res)=>{
     User.findByIdAndRemove(req.params.userId).then(user => {
@@ -52,19 +61,21 @@ router.delete('/:userId', (req, res)=>{
     }).catch(err => {
         return res.status(400).json({success: false, error: err});
     })
-
 })
 
-router.get(`/get/count`, async (req, res)=>{
+
+
+router.get('/get/count', async (req, res)=>{
     const userCount = await User.countDocuments();
 
         if (! userCount)
             res.status(500).json({success: false})
 
-    res.send({
+    return res.status(200).send({
         userCount: userCount
     });
 })
+
 
 
 router.post('/login', async (req, res) => {
@@ -73,7 +84,7 @@ router.post('/login', async (req, res) => {
     if (!user)
         return res.status(400).send('The user not found');
 
-    if(user && bcrypt.compareSync(req.body.passwordHash, user.passwordHash))
+    if(user && bcrypt.compareSync(req.body.password, user.passwordHash))
     {
         const secret = process.env.secret;
         const token = jwt.sign({
