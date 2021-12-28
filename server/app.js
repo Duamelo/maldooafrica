@@ -7,14 +7,19 @@ require('dotenv/config');
 const authJwt = require('./helpers/jwt');
 const errorHandler = require('./helpers/error-handler');
 
-
+//swagger 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json')
 
 
 app.use(cors());
 app.options('*', cors());
 
-
-
+app.use(
+    '/api-docs',
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerDocument)
+);
 
 //Middleware
 app.use(express.json());
