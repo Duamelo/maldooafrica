@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import "./WhisList.css";
 
 //images
-import frite from '../../images/frite.png';
+import pizza from '../../images/icons8-pizza-80.png';
 
 
 function WhisList() {
@@ -39,26 +39,26 @@ function WhisList() {
 			<tbody>
 				<tr>
 					<td scope="row">
-						<div className="image-size"> <img src={frite} alt="s" /> </div>
+						<div className="image-size"> <img src={pizza} alt="s" /> </div>
 					</td>
 					<td>
-						<a class=" link-warning" href="#">Apricot Chicken </a><br />
+						<a class="fw-bold link-warning food-title" href="#">Apricot Chicken </a><br />
 						<small class="text-warning fw-bold">£8.30</small>
 						<small class="fw-bold text-decoration-line-through">£18.00</small><br />
 						<small class="fw-bold text-muted">September 28, 2021</small><br />
 					</td>
 					<td>
-						<small class="fw-bold text-muted">in stock</small><br />
-						<a class="fw-bold link-dark">Add to cart</a><br />
-						<a class="fw-bold link-dark">Views cart</a><br />
+						<small class="fw-bold text-muted">In stock</small><br />
+						<a class="fw-bold link-dark mt-3">Add to cart</a><br />
+					
 					</td>
 				</tr>
 				<tr>
 					<td scope="row">
-						<img src={frite} alt="s" className="image-size"/>
+						<img src={pizza} alt="s" className="image-size"/>
 					</td>
 					<td>
-						<a class=" link-warning" href="#">Apricot Chicken </a><br />
+						<a class=" link-warning fw-bold food-title" href="#">Apricot Chicken </a><br />
 						<small class="text-warning fw-bold">£8.30</small>
 						<small class="fw-bold text-decoration-line-through">£18.00</small><br />
 						<small class="fw-bold text-muted">September 28, 2021</small><br />
@@ -66,15 +66,15 @@ function WhisList() {
 					<td>
 						<small class="fw-bold text-muted">in stock</small><br />
 						<a class="fw-bold link-dark">Add to cart</a><br />
-						<a class="fw-bold link-dark">Views cart</a><br />
+			
 					</td>
 				</tr>
 				<tr>
 					<td scope="row">
-                        <img src={frite} alt="s" className="image-size"/>
+                        <img src={pizza} alt="s" className="image-size"/>
 					</td>
 					<td>
-						<a class=" link-warning" href="#">Apricot Chicken </a><br />
+						<a class=" link-warning fw-bold food-title" href="#">Apricot Chicken </a><br />
 						<small class="text-warning fw-bold">£8.30</small>
 						<small class="fw-bold text-decoration-line-through">£18.00</small><br />
 						<small class="fw-bold text-muted">September 28, 2021</small><br />
@@ -82,15 +82,15 @@ function WhisList() {
 					<td>
 						<small class="fw-bold text-muted">in stock</small><br />
 						<a class="fw-bold link-dark">Add to cart</a><br />
-						<a class="fw-bold link-dark">Views cart</a><br />
+				
 					</td>
 				</tr>
 				<tr>
 					<td scope="row">
-                        <img src={frite} alt="s" className="image-size"/>
+                        <img src={pizza} alt="s" className="image-size"/>
 					</td>
 					<td>
-						<a class=" link-warning" href="#">Apricot Chicken </a><br />
+						<a class=" link-warning fw-bold food-title" href="#">Apricot Chicken </a><br />
 						<small class="text-warning fw-bold">£8.30</small>
 						<small class="fw-bold text-decoration-line-through">£18.00</small><br />
 						<small class="fw-bold text-muted">September 28, 2021</small><br />
@@ -98,15 +98,15 @@ function WhisList() {
 					<td>
 						<small class="fw-bold text-muted">in stock</small><br />
 						<a class="fw-bold link-dark">Add to cart</a><br />
-						<a class="fw-bold link-dark">Views cart</a><br />
+					
 					</td>
 				</tr>
 				<tr>
 					<td scope="row">
-                        <img src={frite} alt="s" className="image-size"/>
+                        <img src={pizza} alt="s" className="image-size"/>
 					</td>
 					<td>
-						<a class=" link-warning" href="#">Apricot Chicken </a><br />
+						<a class=" link-warning fw-bold food-title" href="#">Apricot Chicken </a><br />
 						<small class="text-warning fw-bold">£8.30</small>
 						<small class="fw-bold text-decoration-line-through">£18.00</small><br />
 						<small class="fw-bold text-muted">September 28, 2021</small><br />
@@ -114,15 +114,15 @@ function WhisList() {
 					<td>
 						<small class="fw-bold text-muted">in stock</small><br />
 						<a class="fw-bold link-dark">Add to cart</a><br />
-						<a class="fw-bold link-dark">Views cart</a><br />
+						
 					</td>
 				</tr>
 				<tr>
 					<td scope="row">
-                        <img src={frite} alt="s" className="image-size" />
+                        <img src={pizza} alt="s" className="image-size" />
 					</td>
 					<td>
-						<a class=" link-warning" href="#">Apricot Chicken </a><br />
+						<a class=" link-warning fw-bold food-title" href="#">Apricot Chicken </a><br />
 						<small class="text-warning fw-bold">£8.30</small>
 						<small class="fw-bold text-decoration-line-through">£18.00</small><br />
 						<small class="fw-bold text-muted">September 28, 2021</small><br />
@@ -130,15 +130,15 @@ function WhisList() {
 					<td>
 						<small class="fw-bold text-muted">in stock</small><br />
 						<a class="fw-bold link-dark">Add to cart</a><br />
-						<a class="fw-bold link-dark">Views cart</a><br />
+						
 					</td>
 				</tr>
 				<tr>
 					<td scope="row">
-                        <img src={frite} alt="s" className="image-size" />
+                        <img src={pizza} alt="s" className="image-size" />
 					</td>
 					<td>
-						<a class=" link-warning" href="#">Apricot Chicken </a><br />
+						<a class=" link-warning fw-bold food-title" href="#">Apricot Chicken </a><br />
 						<small class="text-warning fw-bold">£8.30</small>
 						<small class="fw-bold text-decoration-line-through">£18.00</small><br />
 						<small class="fw-bold text-muted">September 28, 2021</small><br />
@@ -146,35 +146,13 @@ function WhisList() {
 					<td>
 						<small class="fw-bold text-muted">in stock</small><br />
 						<a class="fw-bold link-dark">Add to cart</a><br />
-						<a class="fw-bold link-dark">Views cart</a><br />
+					
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-	<div class="p-3 d-flex justify-content-between mb-5">
-		<div>
-			Share:
-			<div class="-group g-2" role="group" aria-label="Basic outlined example">
-				<a type="a" class=" -outline-primary">
-					<i class="fa fa-network-wired"></i>
-				</a>
-				<a type="a" class=" -outline-primary">
-					<i class="fa fa-network-wired"></i>
-				</a>
-				<a type="a" class=" -outline-primary">
-					<i class="fa fa-network-wired"></i>
-				</a>
-				<a type="a" class=" -outline-primary">
-					<i class="fa fa-network-wired"></i>
-				</a>
-				<a type="a" class=" -outline-primary">
-					<i class="fa fa-network-wired"></i>
-				</a>
-			</div>
-		</div>
-	</div>
-        <Footer/>
+    <Footer/>
     </>
 }
 
