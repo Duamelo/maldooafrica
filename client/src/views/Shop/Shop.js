@@ -2,11 +2,14 @@ import React from 'react';
 import "./Shop.css";
 import Card from '../../components/Card/Card';
 import { Link } from 'react-router-dom';
+import NavBar from '../../components/NavBar/NavBar';
+import Footer from '../../components/Footer/Footer';
 //import Button from '../../components/Button/Button';
 
 
 function Shop() {
     return <>
+	<NavBar/>
     <section className="header-menu">
             <div className="jumbotron jumbotron-fluid ">
                 <div className="container">
@@ -225,6 +228,7 @@ function Shop() {
 			</div>
         </div>
     </section>
+	<Footer/>
 </>
 }
 

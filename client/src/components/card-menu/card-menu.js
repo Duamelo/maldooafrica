@@ -19,7 +19,7 @@ function cardMenu() {
                 {/*<Rate disabled defaultValue={2} />*/}
             </span>
             </div>
-            <Link className="product-title" to="#"><span>Delicious pizza</span></Link>
+            <Link className="product-title" to="/plat_id"><span>Delicious pizza</span></Link>
             <span className="price">
                 1000 FCFA
             </span>

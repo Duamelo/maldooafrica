@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
+import Footer from '../../components/Footer/Footer';
+import NavBar from '../../components/NavBar/NavBar';
 import "./About.css";
 
 function About() {
     return <>
+	<NavBar/>
     <section className="header-menu">
             <div class="jumbotron jumbotron-fluid ">
                 <div class="container">
@@ -261,6 +264,7 @@ function About() {
 				</div>
 			</div>
         </section>
+		<Footer/>
     </>
 }
 

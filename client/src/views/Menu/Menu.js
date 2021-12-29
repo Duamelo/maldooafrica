@@ -7,11 +7,14 @@ import CardMenu from "../../components/card-menu/card-menu";
 
 
 import scooter from '../../images/icons8-scooter-68.png';
+import NavBar from '../../components/NavBar/NavBar';
+import Footer from '../../components/Footer/Footer';
 
 
 
 function Menu() {
     return <>
+        <NavBar/>
          <section className="header-menu">
             <div class="jumbotron jumbotron-fluid ">
                 <div class="container">
@@ -93,7 +96,7 @@ function Menu() {
                 </div>
             </div>
         </section>
-
+        <Footer/>
     </>
 }
 

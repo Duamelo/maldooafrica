@@ -5,7 +5,8 @@ import burger from '../../images/Group 74.png';
 import Button from '../../components/Button/Button';
 import './Home.css';
 import { Link } from 'react-router-dom';
-
+import NavBar from '../../components/NavBar/NavBar';
+import Footer from "../../components/Footer/Footer";
 
 function Home() {
     const motarImg = useRef(null);
@@ -19,6 +20,7 @@ function Home() {
 
     return (
         <>
+            <NavBar/>
             <Header/>
 
             <section className="container-fluid first-section-home">
@@ -235,6 +237,7 @@ function Home() {
                     </div>
                 </div>
             </section>
+            <Footer/>
         </>
     )
 }

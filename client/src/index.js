@@ -4,9 +4,29 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import App from './App';
 
+
+// 1. import from react-redux and redux
+
+import { createStore} from 'redux';
+import {Provider} from 'react-redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
+import rootReducer from './reducers';
+
+
+// 2. create user reducer function
+// 3. combine multiple reducers
+// 4. create redux store
+
+const store = createStore(rootReducer, composeWithDevTools());
+
+
+// 5. provide redux store to the entire app
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

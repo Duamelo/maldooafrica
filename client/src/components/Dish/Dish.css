@@ -1,0 +1,31 @@
+.dish-breadcrumb{
+    position: relative;
+    height: 50px;
+    background-color: #f7f4ef;
+    margin-top: 110px;
+}
+
+.dish-breadcrumb-breadcrumb{
+    position: relative;
+    top: 15px;
+    left: 0px;
+}
+
+.dish-item{
+    position: relative;
+    padding-left: 15px;
+}
+
+.card{
+    border-radius: 20px;
+}
+
+.dish-description{
+    position: relative;
+    margin-left: 15px;
+}
+
+.button-rounded{
+    position: relative;
+    border-radius: 150px;
+}

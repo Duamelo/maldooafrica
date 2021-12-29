@@ -4,12 +4,31 @@ import scooter from '../../images/scooter.png'
 import './navBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faSearch, faShoppingBasket, faUser } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import {useSelector, useDispatch } from "react-redux";
+import 'bootstrap/dist/js/bootstrap.js';
 
 function NavBar() {
 
+    const dispatch = useDispatch();
+    const { auth } = useSelector((state) => ({...state}));  
+    const navigate = useNavigate();
 
-    return (
+
+
+    const logout = () => {
+      
+      dispatch({
+        type: "LOGOUT",
+        payload: null,
+      });
+  
+      window.localStorage.removeItem("auth");
+      navigate("/");
+  
+    }
+
+    return <>
         <nav className="navbar fixed-top navbar-expand-lg navbar-light">
             <div className="container-fluid">
                 <img src={logo} alt="" className="navbar-logo-img"/>
@@ -39,31 +58,42 @@ function NavBar() {
                     <img src={scooter} alt="" className="nav-scooter"/>
                     <p className="nav-contact">
                         <span className="nav-contact-span-one">Appelle et commande au</span>
-                        <span className="nav-contact-span-two">+229 61088061</span>
+                        <span className="nav-contact-span-two">+229 61070775</span>
                     </p>
                 </div>
 
                 <div className="d-flex nav-">
-                    <a href="/" className="nav-lin-icon-a">
+                    <Link to="/search" className="nav-lin-icon-a">
                         <FontAwesomeIcon icon={faSearch}/>
-                    </a>
-                    <a href="/" className="nav-lin-icon-a">
-                        <FontAwesomeIcon icon={faUser}/>
-                    </a> 
-                    <a href="/" className="nav-lin-icon-a">
+                    </Link>
+
+                    {auth !== null && <a  onClick={logout} className="nav-lin-icon-a">
+                        {auth.user[0].toUpperCase()}
+                    </a> }
+
+                   
+
+                    {auth === null && (
+                        <a href="/login" className="nav-lin-icon-a">
+                            <FontAwesomeIcon icon={faUser}/>
+                        </a> 
+                    )}
+                    <Link to="/wishlist" className="nav-lin-icon-a">
                         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">4</span>
                         <FontAwesomeIcon icon={faHeart}/>
-                    </a> 
-                    <a href="/" className="nav-lin-icon-a">
+                    </Link> 
+                    <Link to="/basket" className="nav-lin-icon-a">
                         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">23</span>
                         <FontAwesomeIcon icon={faShoppingBasket}/>
-                    </a> 
+                    </Link> 
                 </div>
                 </div>
                 
             </div>
         </nav>
-    )
+
+        
+    </>
 }
 
 export default NavBar;

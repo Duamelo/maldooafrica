@@ -62,7 +62,7 @@ const PORT = process.env.PORT || 3000;
 // Server
 app.listen(PORT, () =>  {
     console.log(api);
-    console.log('Server is running http://localhost:3000');
+    console.log('Server is running http://localhost:'+ PORT);
 });
 
 
