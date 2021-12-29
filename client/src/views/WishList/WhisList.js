@@ -11,7 +11,7 @@ import pizza from '../../images/icons8-pizza-80.png';
 function WhisList() {
     return <>
         <NavBar/>
-        <section className="header-menu">
+        <section className="header-menu mb-3">
             <div class="jumbotron jumbotron-fluid ">
                 <div class="container">
                     <div className="row">
@@ -34,7 +34,7 @@ function WhisList() {
                 </div>
             </div>
         </section>
-        <div class="container-fluid mb-5 p-4 card">
+        <div class="container-fluid mb-5 mt-5 p-4 card">
 		<table class="table table-striped table-inverse table-responsive table-bordered">
 			<tbody>
 				<tr>
