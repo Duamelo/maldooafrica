@@ -44,7 +44,7 @@ router.get(`/`, async (req, res)=> {
     {
         return res.status(500).json({success: false});
     }
-
+    console.log(menuList);
     return res.status(200).send(menuList);
 })
 

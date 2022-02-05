@@ -8,6 +8,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import {useSelector, useDispatch } from "react-redux";
 import 'bootstrap/dist/js/bootstrap.js';
 
+import AddCart from '../AddCart/AddCart';
+
+
 function NavBar() {
 
     const dispatch = useDispatch();
@@ -41,16 +44,16 @@ function NavBar() {
                         <Link className="nav-link active navbar-link" aria-current="page"  to="/">Home</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link  navbar-link" aria-current="page"  to="/menu">Menu</Link>
+                        <Link className="nav-link active navbar-link" aria-current="page"  to="/menu">Menu</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link  navbar-link" aria-current="page"  to="/about">About</Link>
+                        <Link className="nav-link active navbar-link" aria-current="page"  to="/about">About</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link  navbar-link" aria-current="page"  to="/shop">Shop</Link>
+                        <Link className="nav-link  active navbar-link" aria-current="page"  to="/shop">Shop</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link  navbar-link" aria-current="page"  to="/contact">Contact</Link>
+                        <Link className="nav-link active navbar-link" aria-current="page"  to="/contact">Contact</Link>
                     </li>
                 </ul>
 
@@ -82,10 +85,10 @@ function NavBar() {
                         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">4</span>
                         <FontAwesomeIcon icon={faHeart}/>
                     </Link> 
-                    <Link to="/basket" className="nav-lin-icon-a">
-                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">23</span>
-                        <FontAwesomeIcon icon={faShoppingBasket}/>
-                    </Link> 
+
+                    <AddCart/>
+                
+                
                 </div>
                 </div>
                 

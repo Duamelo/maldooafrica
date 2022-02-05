@@ -41,7 +41,7 @@ router.get('/', async (req, res) => {
     {
         filter = { category: req.query.categories.split(',') };
     }
-    const dishList = await Dish.find(filter).select().populate('category');
+    const dishList = await Dish.find(filter).select().populate('categoryId');
 
     if (!dishList)
         res.status(500).json({success: false});

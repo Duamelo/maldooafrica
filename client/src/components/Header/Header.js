@@ -1,5 +1,6 @@
 import React from 'react';
 import plate from '../../images/plate.jpg';
+import Button from '../Button/Button';
 import './Header.css';
 
 function Header() {
@@ -13,7 +14,7 @@ function Header() {
                             <h5 className="header-span-one">Lorem ipsum dolor sit amet</h5>
                             <span className="header-span-two">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur, ad!</span>
                             <div className="header-content-price mb-3 mt-4">
-                                <button type="button" className="btn btn-outline-warning btn-lg">Commande</button>
+                                <Button link="/shop">Commande</Button>
                                 <span className="header-price"> 1000 FCFA </span>
                             </div>
                         </div>

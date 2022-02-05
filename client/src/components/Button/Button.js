@@ -1,10 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Button.css'
 
 function Button(props) {
     return (
-        <button type="button" className="btn btn-warning btn-lg">{props.children}</button>
+        <Link to={props.link} className="btn btn-warning btn-lg">{props.children}</Link>
     )
 }
 
+Button.defaultProps = {
+    link: ""
+  }
 export default Button

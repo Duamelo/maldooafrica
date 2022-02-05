@@ -45,7 +45,7 @@ function About() {
 								tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. Proin sed ultrices erat.
 							</p>
 						</div>
-						    <Button>Contact now</Button>
+						    <Button link="/contact">Contact now</Button>
 					</div>
 					<div className="col-sm mt-3 mb-3">
                         
@@ -60,7 +60,7 @@ function About() {
 					<div className="text-center text-light p-5">
 						<h3>Make the thing Anything is Possible</h3>
 						<div className="mb-3">Enjoy our luscious dishes wherever you want</div>
-						<Button>Order now</Button>
+						<Button link="/shop">Order now</Button>
 					</div>
 				</div>
 				<div className="row mb-3">
@@ -75,7 +75,7 @@ function About() {
 								chicken breast meat.
 							</p>
 						</div>
-						<Button>Order now</Button>
+						<Button link="/shop">Order now</Button>
 					</div>
 					<div className="col-sm">
 						<img src="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/about-imager-5.png"
@@ -101,7 +101,7 @@ function About() {
 								chicken breast meat.
 							</p>
 						</div>
-						<Button>Order now</Button>
+						<Button link="/shop">Order now</Button>
 					</div>
 				</div>
 				<div className="row mb-3">
@@ -116,7 +116,7 @@ function About() {
 								chicken breast meat.
 							</p>
 						</div>
-						<Button>Order now</Button>
+						<Button link="/shop">Order now</Button>
 					</div>
 					<div className="col-sm">
 						<img src="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/about-imager-5.png"
@@ -259,8 +259,7 @@ function About() {
 						If you’re having a meeting, working late at night and need an extra push. Let us know and we
 						will be there
 					</p>
-					<Button>MAKE AN ORDER</Button>
-					
+					<Button link="/shop">MAKE AN ORDER</Button>
 				</div>
 			</div>
         </section>

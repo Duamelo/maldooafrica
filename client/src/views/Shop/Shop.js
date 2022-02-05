@@ -1,13 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Shop.css";
 import Card from '../../components/Card/Card';
 import { Link } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 //import Button from '../../components/Button/Button';
+import axios from 'axios';
 
 
 function Shop() {
+
+
+	const [dishs, setDish] = useState([]);
+	const [categories, setCategories] = useState([]);
+    
+    useEffect(() => {
+        axios({
+          method: 'get',
+          url: `${process.env.REACT_APP_API}/dishs`,
+        }).then((res) => {
+          setDish(res.data);
+          console.log(res.data);
+          console.log(dishs);
+        })
+      }, []);
+
+	useEffect( ()=> {
+		axios({
+			method: 'get',
+			url: `${process.env.REACT_APP_API}/categories`,
+		  }).then((res) => {
+			setCategories(res.data);
+			console.log(res.data);
+			console.log(categories);
+		  })
+		}, []);
+
+
+
     return <>
 	<NavBar/>
     <section className="header-menu">
@@ -36,8 +66,8 @@ function Shop() {
 
     <section className="container-fluid">
         <div className="row">
-			<div className="col-xl-9">
-				<div className="d-flex justify-content-between mb-5">
+			<div className="col-xl-9 mt-5 mb-5">
+				{/*<div className="d-flex justify-content-between mb-5">
 					<p className="text-muted"> Showing 1–12 of 54 results </p>
 					<div className="btn-group">
 						<button type="button" className="btn btn-outline-secondary"> 1 </button>
@@ -53,35 +83,22 @@ function Shop() {
 							</div>
 						</div>
 					</div>
-				</div>
-				<div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-					<div className="col">
-						<Card/>
-					</div>
-					<div className="col">
-                        <Card/>
-					</div>
-					<div className="col">
-                        <Card/>
-					</div>
-					<div className="col">
-                        <Card/>
-					</div>
-					<div className="col">
-                        <Card/>
-					</div>
-					<div className="col">
-                        <Card/>
-					</div>
-					<div className="col">
-                        <Card/>
-					</div>
-					<div className="col">
-                        <Card/>
-					</div>
-					<div className="col">
-                        <Card/>
-					</div>
+				</div>*/}
+				<div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-5 pb-5">
+					{dishs.map ( (dish) => (
+						
+						<div className="col">
+							<Link to="/plat_id" className="card-shop-item">
+								<Card
+									key = {dish.id}
+									titre = {dish.name}
+									description = {dish.description}
+									price = {dish.price}
+								/>
+							</Link>
+						</div>
+					))}
+					
 				</div>
 				{/*<nav aria-label="..." className="p-5">
 					<ul className="pagination">
@@ -106,37 +123,17 @@ function Shop() {
 				<div className="card mb-3">
 					<div className="card-header">Categories</div>
 					<ul className="list-group list-group-flush">
-						<li className="list-group-item d-flex justify-content-between">
-							<div>Burgers</div>
-							<div>(9)</div>
-						</li>
-						<li className="list-group-item d-flex justify-content-between">
-							<div>Burgers</div>
-							<div>(9)</div>
-						</li>
-						<li className="list-group-item d-flex justify-content-between">
-							<div>Burgers</div>
-							<div>(9)</div>
-						</li>
-						<li className="list-group-item d-flex justify-content-between">
-							<div>Burgers</div>
-							<div>(9)</div>
-						</li>
-						<li className="list-group-item d-flex justify-content-between">
-							<div>Burgers</div>
-							<div>(9)</div>
-						</li>
-						<li className="list-group-item d-flex justify-content-between">
-							<div>Burgers</div>
-							<div>(9)</div>
-						</li>
-						<li className="list-group-item d-flex justify-content-between">
-							<div>Burgers</div>
-							<div>(9)</div>
-						</li>
+						{categories.map( (categorie) => (
+							
+							<li className="list-group-item d-flex justify-content-between" key={categorie.id}>
+								<div>{categorie.name}</div>
+								<div>(9)</div>
+							</li>
+						))}
+						
 					</ul>
 				</div>
-				<div className="row row-cols-lg-1">
+				{/*<div className="row row-cols-lg-1">
 					<div className="mb-3 col">
 						<label for="priceRange" className="form-label fw-bold">Filter by price</label>
 						<hr />
@@ -154,8 +151,8 @@ function Shop() {
 							<button type="button" className="btn btn-outline-warning">X</button>
 						</div>
 					</div>
-				</div>
-				<div className="row row-cols-1">
+				</div>*/}
+				<div className="row row-cols-1 p-3">
 					<h4>Best deal</h4>
 					<hr />
 					<div className="card col mb-3">
@@ -167,14 +164,12 @@ function Shop() {
 							<div className="col-md-8">
 								<div className="card-body">
 									<h5 className="card-title">
-										<button className="btn link-warning" href="#">Apricot Chicken </button>
+										<Link className="link-warning aside-dish " to="/plat_id">Apricot Chicken </Link>
 									</h5>
 									<p className="card-text text-muted">Crispy bacon, tasty ham, pineapple, onion</p>
 									<div className="d-flex justify-content-between align-items-center">
-										<small className="text-warning display-6 fw-bold">£18.30</small>
-										<div className="btn-group">
-											<button type="button" className="btn btn-sm btn-warning">Shop</button>
-										</div>
+										<small className="text-warning fw-bold">£18.30</small>
+										
 									</div>
 								</div>
 							</div>
@@ -189,14 +184,12 @@ function Shop() {
 							<div className="col-md-8">
 								<div className="card-body">
 									<h5 className="card-title">
-										<button className="btn link-warning" href="#">Apricot Chicken </button>
+										<Link className="link-warning aside-dish " to="/plat_id">Apricot Chicken </Link>
 									</h5>
 									<p className="card-text text-muted">Crispy bacon, tasty ham, pineapple, onion</p>
 									<div className="d-flex justify-content-between align-items-center">
-										<small className="text-warning display-6 fw-bold">£18.30</small>
-										<div className="btn-group">
-											<button type="button" className="btn btn-sm btn-warning">Shop</button>
-										</div>
+										<small className="text-warning fw-bold">£18.30</small>
+										
 									</div>
 								</div>
 							</div>
@@ -211,14 +204,12 @@ function Shop() {
 							<div className="col-md-8">
 								<div className="card-body">
 									<h5 className="card-title">
-										<button className="btn link-warning" href="#">Apricot Chicken </button>
+										<Link className="link-warning aside-dish " to="/plat_id">Apricot Chicken </Link>
 									</h5>
 									<p className="card-text text-muted">Crispy bacon, tasty ham, pineapple, onion</p>
 									<div className="d-flex justify-content-between align-items-center">
-										<small className="text-warning display-6 fw-bold">£18.30</small>
-										<div className="btn-group">
-											<button type="button" className="btn btn-sm btn-warning">Shop</button>
-										</div>
+										<small className="text-warning fw-bold">£18.30</small>
+										
 									</div>
 								</div>
 							</div>

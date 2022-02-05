@@ -160,6 +160,10 @@
 
   /*section presentation */
 
+.presentation {
+    background-color: #00a850;
+}
+
 .meals {
     position: relative;
     left: 0;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Menu.css'
 
@@ -9,10 +9,37 @@ import CardMenu from "../../components/card-menu/card-menu";
 import scooter from '../../images/icons8-scooter-68.png';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
+import axios from 'axios';
+
+//context
+import  CartContext  from "../../context/cart";
 
 
+//const reducer = key => key + 1;
 
 function Menu() {
+
+    const [menus, setMenus] = useState([]);
+
+    const { setCart } = useContext(CartContext);
+
+   // const [id, updateId] = useReducer(reducer, 0);
+
+    const addProduct = (product)=>{
+        setCart({product, type: 'add'});
+    }
+
+    
+    useEffect(() => {
+        axios({
+          method: 'get',
+          url: `${process.env.REACT_APP_API}/menus`,
+        }).then((res) => {
+          setMenus(res.data);
+        })
+      }, [])
+
+    
     return <>
         <NavBar/>
          <section className="header-menu">
@@ -42,12 +69,16 @@ function Menu() {
         <section className="menu-tabs-content  product-list">
             <div className="container-fluid">
                 <ul className="row products">
-                   <CardMenu/>
-                   <CardMenu/>
-                   <CardMenu/>
-                   <CardMenu/>
-                   <CardMenu/> 
-                   <CardMenu/>
+                {menus.map( (menu) => (
+                  
+                    <CardMenu 
+                       //add = {addProduct}
+                       name={menu.name}
+                       description= {menu.description}
+                       price={menu.price}
+                       key={menu.id}
+                   />
+                ))}
                 </ul>
             </div>
         </section>

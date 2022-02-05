@@ -41,14 +41,14 @@ function Contact() {
                 <div className="col-sm">
                     <img src={phone} alt="phone" className="mb-4"/>  <br />
                     <span className="fw-bold">Phone:</span><br />
-                    <div className="text-muted mt-3">+ 44 123 456 78 90<br /></div>
-                    <div className="text-muted">+ 844 123 444 77 88<br /></div>
+                    <div className="text-muted mt-3">+229 61070775<br /></div>
+                    <div className="text-muted">+229 61070775<br /></div>
                 </div>
                 <div className="col-sm">
                     <img src={adress} alt="adress" className="mb-4"/>  <br />
                     <span className="fw-bold">Address</span><br />
-                    <div className="text-muted mt-3">Box 565, Pinney's Beach, Charlestown,<br /></div>
-                    <div className="text-muted">Nevis, West Indies, Caribbean<br /></div>
+                    <div className="text-muted mt-3">Cotonou, lorem ipsum<br /></div>
+                    <div className="text-muted">Cotonou, lorem ipsum<br /></div>
                 </div>
                 <div className="col-sm">
                     <img src={email} alt="email" className="mb-4"/>  <br />

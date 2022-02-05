@@ -191,13 +191,25 @@ function Dish() {
 		<h5 class="fw-bolder display-5 text-center mb-5">PRODUITS SIMILAIRES</h5>
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <div className="col">
-                    <Card/>
+                    <Card
+                        titre="attassi crampon"
+                        description="lorem ipsum dolor res"
+                        price="1000"
+                    />
                 </div>
                 <div className="col">
-                    <Card/>
+                    <Card
+                        titre="attassi crampon"
+                        description="lorem ipsum dolor res"
+                        price="1000"
+                    />
                 </div>
                 <div className="col">
-                    <Card/>
+                    <Card
+                        titre="attassi crampon"
+                        description="lorem ipsum dolor res"
+                        price="1000"    
+                    />
                 </div>
             </div>
     </div>
