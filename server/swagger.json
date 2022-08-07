@@ -1,0 +1,1206 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "MaldoAfrica",
+		"version": "1.0",
+		"description": "Ensemble des points de terminaison de l'api"
+	},
+	"host": "localhost",
+	"basePath": "/api/v1",
+	"schemes": [
+		"http"
+	],
+	"tags": [
+		{
+			"name": "name",
+			"description": "description"
+		}
+	],
+	"paths": {
+		"/categories": {
+			"get": {
+				"tags": [
+					"Category"
+				],
+				"summary": "Obtenir la liste des categories",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "erreur interne au serveur"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Category"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Créer une nouvelle Catégory",
+				"parameters": [
+					{
+						"name": "name",
+						"in": "body",
+						"description": "nom de la gategories",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Category créé"
+					},
+					"404": {
+						"description": "La category ne peut pas etre créé"
+					}
+				}
+			}
+		},
+		"/categories/{id}": {
+			"get": {
+				"tags": [
+					"Category"
+				],
+				"summary": "Obtenir les info sur une categories",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "id de la categories",
+						"required": true,
+						"default": 0
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "erreur interne au serveur"
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"Category"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Supprimer un plat",
+				"operationId": "11",
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "id de la categories",
+						"required": true,
+						"default": 0
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Category créé"
+					},
+					"404": {
+						"description": "La category ne peut pas etre créé"
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"Category"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Metre a jour une Catégory",
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "id de la categories",
+						"required": true,
+						"default": 0
+					},
+					{
+						"name": "name",
+						"in": "body",
+						"description": "nom de la gategories",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Category créé"
+					},
+					"500": {
+						"description": "La category n'as pas pu être mis a jour"
+					}
+				}
+			}
+		},
+		"/dish": {
+			"get": {
+				"tags": [
+					"Dish"
+				],
+				"summary": "Obtenir la liste des dishs",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "categories",
+						"in": "query",
+						"type": "string",
+						"description": "Les categories",
+						"required": false
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "erreur interne au serveur"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Dish"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Créer un nouveau plat",
+				"parameters": [
+					{
+						"name": "name",
+						"in": "body",
+						"description": "nom du plat",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "image",
+						"type": "file",
+						"in": "formData",
+						"allowEmptyValue": false,
+						"description": "Photo du plat"
+					},
+					{
+						"name": "description",
+						"in": "body",
+						"description": "description du plat",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "price",
+						"in": "body",
+						"description": "nom du plat",
+						"required": true,
+						"schema": {
+							"type": "number"
+						}
+					},
+					{
+						"name": "categoryId",
+						"in": "body",
+						"description": "nom du plat",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"example": 0
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Resource créé"
+					},
+					"400": {
+						"description": " Le plat existe déjà"
+					}
+				}
+			}
+		},
+		"/dish/{id}": {
+			"get": {
+				"tags": [
+					"Dish"
+				],
+				"summary": "Obtenir les info sur une plat",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "Id du plat",
+						"required": true,
+						"default": 0
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "resource non exitant"
+					},
+					"500": {
+						"description": "erreur interne au serveur"
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"Dish"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Supprimer un  plat",
+				"operationId": "11",
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "id du plat",
+						"required": true,
+						"default": 0
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "plat suprimer"
+					},
+					"500": {
+						"description": "Erreur interne du serveur"
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"Dish"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Metre a jour un plat",
+				"parameters": [
+					{
+						"name": "name",
+						"in": "body",
+						"description": "nom du plat",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "image",
+						"type": "file",
+						"in": "formData",
+						"allowEmptyValue": false,
+						"description": "Photo du plat"
+					},
+					{
+						"name": "description",
+						"in": "body",
+						"description": "description du plat",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "price",
+						"in": "body",
+						"description": "nom du plat",
+						"required": false,
+						"schema": {
+							"type": "number"
+						}
+					},
+					{
+						"name": "categoryId",
+						"in": "body",
+						"description": "nom du plat",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"example": 0
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Category créé"
+					},
+					"500": {
+						"description": "La category n'as pas pu être mis a jour"
+					}
+				}
+			}
+		},
+		"/gallery-images/{id}": {
+			"put": {
+				"tags": [
+					"Dish"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Ajouter des image",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"type": "integer",
+						"required": true,
+						"description": "id d'un plat"
+					},
+					{
+						"name": "files",
+						"type": "file",
+						"in": "formData",
+						"description": "images a ajouter"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Category créé"
+					},
+					"500": {
+						"description": "La category n'as pas pu être mis a jour"
+					}
+				}
+			}
+		},
+		"/menus": {
+			"get": {
+				"tags": [
+					"Menu"
+				],
+				"summary": "Obtenir la liste des menus",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "erreur interne au serveur"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Menu"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Créer un nouveau menu",
+				"parameters": [
+					{
+						"name": "entry",
+						"in": "body",
+						"description": "entry",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "resistance",
+						"in": "body",
+						"description": "resistance",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "output",
+						"in": "body",
+						"description": "output",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "description",
+						"in": "body",
+						"description": "description",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "Rich description",
+						"in": "body",
+						"description": "Rich description",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "price",
+						"in": "body",
+						"description": "price",
+						"required": true,
+						"schema": {
+							"type": "number"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "menu créé"
+					},
+					"404": {
+						"description": "La menu ne peut pas etre créé"
+					}
+				}
+			}
+		},
+		"/menus/{id}": {
+			"get": {
+				"tags": [
+					"Menu"
+				],
+				"summary": "Obtenir les info sur un menu",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "id du menu",
+						"required": true,
+						"default": 0
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "erreur interne au serveur"
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"Menu"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Supprimer un plat",
+				"operationId": "11",
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "id du menu",
+						"required": true,
+						"default": 0
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "menu créé"
+					},
+					"404": {
+						"description": "La menu ne peut pas etre créé"
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"Menu"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Metre a jour un menu",
+				"parameters": [
+					{
+						"name": "entry",
+						"in": "body",
+						"description": "entry",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "resistance",
+						"in": "body",
+						"description": "resistance",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "output",
+						"in": "body",
+						"description": "output",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "description",
+						"in": "body",
+						"description": "description",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "Rich description",
+						"in": "body",
+						"description": "Rich description",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "price",
+						"in": "body",
+						"description": "price",
+						"required": false,
+						"schema": {
+							"type": "number"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "menu créé"
+					},
+					"500": {
+						"description": "La menu n'as pas pu être mis a jour"
+					}
+				}
+			}
+		},
+		"/get/count": {
+			"get": {
+				"tags": [
+					"Menu"
+				],
+				"summary": "Obtenir le nombre de menu",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "erreur interne au serveur"
+					}
+				}
+			}
+		},
+		"/orders": {
+			"get": {
+				"tags": [
+					"order"
+				],
+				"summary": "Obtenir la liste des orders",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "erreur interne au serveur"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"order"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Créer une nouvelle ordre",
+				"parameters": [
+					{
+						"name": "deliveryAdress1",
+						"in": "body",
+						"description": "",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "city",
+						"in": "body",
+						"description": "",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "deliveryContact",
+						"in": "body",
+						"description": "",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "order créé"
+					},
+					"404": {
+						"description": "L'ordre ne peut pas etre créé"
+					}
+				}
+			}
+		},
+		"/orders/{id}": {
+			"get": {
+				"tags": [
+					"order"
+				],
+				"summary": "Obtenir les info sur un ordre",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "id d'un ordre",
+						"required": true,
+						"default": 0
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "erreur interne au serveur"
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"order"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Supprimer un plat",
+				"operationId": "11",
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "id d'un ordre",
+						"required": true,
+						"default": 0
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "order créé"
+					},
+					"404": {
+						"description": "La order ne peut pas etre créé"
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"order"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Metre a jour une ordre",
+				"parameters": [
+					{
+						"name": "categories",
+						"in": "query",
+						"type": "string",
+						"description": "Les categories",
+						"required": false
+					},
+					{
+						"name": "deliveryAdress1",
+						"in": "body",
+						"description": "",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "city",
+						"in": "body",
+						"description": "",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "deliveryContact",
+						"in": "body",
+						"description": "",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "order créé"
+					},
+					"500": {
+						"description": "La order n'as pas pu être mis a jour"
+					}
+				}
+			}
+		},
+		"/get/totalsales":{
+			"get": {
+				"tags": ["order"],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Total des ventes",
+				"responses": {
+					"200": {
+						"description": "order créé"
+					},
+					"500": {
+						"description": "Erreur interne du serveur"
+					}
+				}
+			}
+		},
+		"/orders/get/count":{
+			"get": {
+				"tags": ["order"],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Total des ordres",
+				"responses": {
+					"200": {
+						"description": "order créé"
+					},
+					"500": {
+						"description": "Erreur interne du serveur"
+					}
+				}
+			}
+		},
+		"/get/userorders/{uid}":{
+			
+			"get": {
+				"tags": ["order"],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Listes des ordres d'un utilisateur",
+				"parameters": [
+					{
+						"name": "uid",
+						"in": "query",
+						"type": "string",
+						"description": "User id",
+						"required": false
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "order créé"
+					},
+					"500": {
+						"description": "Erreur interne du serveur"
+					}
+				}
+			}
+		},
+		"/user": {
+			"get": {
+				"tags": [
+					"User"
+				],
+				"summary": "Obtenir la liste des user",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "erreur interne au serveur"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"User"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Créer une nouvelle Catégory",
+				"parameters": [
+					{
+						"name": "name",
+						"in": "body",
+						"description": "nom de la l'utilisateur",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "email",
+						"in": "body",
+						"description": "",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "password",
+						"in": "body",
+						"description": "",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "password"
+						}
+					},
+					{
+						"name": "phone",
+						"in": "body",
+						"description": "",
+						"required": true,
+						"schema": {
+							"type": "number",
+							"format": "title"
+						}
+					},
+					{
+						"name": "preferenceGastrique",
+						"in": "body",
+						"description": "",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "user créé"
+					},
+					"404": {
+						"description": "l'utilisateur ne peut pas etre créé"
+					}
+				}
+			}
+		},
+		"/user/{id}": {
+			"get": {
+				"tags": [
+					"User"
+				],
+				"summary": "Obtenir les info sur un user",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "id du user",
+						"required": true,
+						"default": 0
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "erreur interne au serveur"
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"User"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Supprimer un plat",
+				"operationId": "11",
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "id de l'utilisateur",
+						"required": true,
+						"default": 0
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "user créé"
+					},
+					"404": {
+						"description": "l'utilisateur ne peut pas etre créé"
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"User"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "Metre a jour une Catégory",
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "id de l'utilisateur",
+						"required": true,
+						"default": 0
+					},
+					{
+						"name": "name",
+						"in": "body",
+						"description": "nom de la l'utilisateur",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "email",
+						"in": "body",
+						"description": "",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					},
+					{
+						"name": "password",
+						"in": "body",
+						"description": "",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "password"
+						}
+					},
+					{
+						"name": "phone",
+						"in": "body",
+						"description": "",
+						"required": true,
+						"schema": {
+							"type": "number",
+							"format": "title"
+						}
+					},
+					{
+						"name": "preferenceGastrique",
+						"in": "body",
+						"description": "",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "title"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "user créé"
+					},
+					"500": {
+						"description": "l'utilisateur n'as pas pu être mis a jour"
+					}
+				}
+			}
+		}
+	}
+}
